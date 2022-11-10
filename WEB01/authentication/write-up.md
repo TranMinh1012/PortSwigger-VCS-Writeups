@@ -1,2 +1,2 @@
 # Authentication
-## Username enumeration via different responses
+## Lab1: Username enumeration via different responses
