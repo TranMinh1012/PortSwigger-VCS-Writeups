@@ -25,3 +25,25 @@ Bước 7: Thay giá trị của username=af và tiến hành quá trình tìm p
 
 Bước 8: Nhập username và password hợp lệ vào và click Log in. Bài lab được hoàn thành
 ![image](https://user-images.githubusercontent.com/74781135/201243668-8d65cb2f-5637-465b-a09c-28782f295ccc.png)
+
+## Lab4: Username enumeration via subtly different responses
+Bước 1: Đăng nhập với username và password ngẫu nhiên và chặn bắt post request này. Gửi request đến Intruder và add payloads ở tham số username
+![image](https://user-images.githubusercontent.com/74781135/201254362-fe419613-da58-4645-8360-ef233f5f2a76.png)
+
+Bước 2: Ở tab Payloads, chọn Payload type : Sumple list và thêm danh sách username vào
+![image](https://user-images.githubusercontent.com/74781135/201254649-fae7211f-b26c-4212-b04f-e21a1bb6771c.png)
+
+Bước 3: Ở tab Options, trong Grep-Extract, click Add. Trong hộp thoại xuất hiện, cuộn xuống qua phản hồi cho đến khi tìm thấy thông báo lỗi "Invalid username or password." Bôi đen thông báo và click OK
+![image](https://user-images.githubusercontent.com/74781135/201255260-c896781f-8632-42e2-9b69-693abd68ec89.png)
+
+Bước 4: Thông báo lỗi đã được thêm vào. Quay lại Payloads và click Start attack
+![image](https://user-images.githubusercontent.com/74781135/201255548-8b9e937e-2a2b-48c2-9141-dc2f44d698dc.png)
+
+Bước 5: username apple hiển thị thông báo lỗi không đầy đủ. Thiếu dấu "." ở cuối cùng. Lưu lại username này
+![image](https://user-images.githubusercontent.com/74781135/201256492-a452cb51-c880-4dbc-9d2b-e82dad9171c9.png)
+
+Bước 6: Sử dụng username=apple để brute-force password. Các bước tương tự như trước, chọn tham số tấn công là password. phản hồi 302 sẽ là password đúng
+![image](https://user-images.githubusercontent.com/74781135/201257079-1b0e3fa5-74f9-44b9-a8f4-52f036152f6c.png)
+
+Bước 7: Nhập username=apple và password==pepper vào để hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/201257256-96db7564-c93b-404c-8f58-ae10341de6fe.png)
