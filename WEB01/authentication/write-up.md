@@ -46,5 +46,5 @@ Bước 6: Sử dụng username=apple để brute-force password. Các bước t
 
 ![image](https://user-images.githubusercontent.com/74781135/201257079-1b0e3fa5-74f9-44b9-a8f4-52f036152f6c.png)
 
-Bước 7: Nhập username=apple và password==pepper vào để hoàn thành bài lab
+Bước 7: Nhập username=apple và password=pepper vào để hoàn thành bài lab
 ![image](https://user-images.githubusercontent.com/74781135/201257256-96db7564-c93b-404c-8f58-ae10341de6fe.png)
