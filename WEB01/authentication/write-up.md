@@ -43,6 +43,7 @@ Bước 5: username apple hiển thị thông báo lỗi không đầy đủ. Th
 ![image](https://user-images.githubusercontent.com/74781135/201256492-a452cb51-c880-4dbc-9d2b-e82dad9171c9.png)
 
 Bước 6: Sử dụng username=apple để brute-force password. Các bước tương tự như trước, chọn tham số tấn công là password. phản hồi 302 sẽ là password đúng
+
 ![image](https://user-images.githubusercontent.com/74781135/201257079-1b0e3fa5-74f9-44b9-a8f4-52f036152f6c.png)
 
 Bước 7: Nhập username=apple và password==pepper vào để hoàn thành bài lab
