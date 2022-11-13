@@ -109,3 +109,72 @@ Bước 6: Nhập username=agenda, password=12345 vào và hoàn thành bài lab
 
 ## Lab2: 2FA simple bypass
 Bước 1: Truy cập vào tài khoản của mình. Chọn Email Client để lấy mã.
+![image](https://user-images.githubusercontent.com/74781135/201533669-67f9ebb5-952a-4f15-bf92-2534bb8a5673.png)
+
+Bước 2: Truy cập vào tài khoản của nạn nhân
+![image](https://user-images.githubusercontent.com/74781135/201533751-473e2f93-8294-4840-a142-ed6850342276.png)
+
+Bước 3: Đổi đường dẫn thành /my-account. Bài lab được hoàn thành
+![image](https://user-images.githubusercontent.com/74781135/201533815-78d14b41-086c-48ae-869b-2e91c9632c8c.png)
+
+## Lab8: 2FA broken logic
+Bước 1: Login vào tài khoản của mình. Tham số verify được sử dụng để xác định tài khoản của người dùng đang được truy cập.
+![image](https://user-images.githubusercontent.com/74781135/201534450-271383b8-39c2-4d86-8f7a-d5d1f8586708.png)
+
+Bước 2: Gửi request đến Repeater. Thay đổi giá trị verify thành carlos và gửi request
+![image](https://user-images.githubusercontent.com/74781135/201534601-c96c98c4-d299-4732-a691-43d14543e454.png)
+
+Bước 3: Đi đến trang đăng nhập và nhập username và password của mình. Sau đó, gửi mã 2FA không hợp lệ.
+Bước 4: Gửi request POST /login2 đến Intruder
+Bước 5: Trong Intruder, set tham số verify=carlos và thêm payload vào tham số mfa-code
+![image](https://user-images.githubusercontent.com/74781135/201534901-22221411-644d-4c6d-b1cc-cbe42676ce26.png)
+
+Bước 6: Ở tab Payloads, chọn Payload Type: Brute Forcer, payload options xóa toàn bộ các ký tự
+![image](https://user-images.githubusercontent.com/74781135/201535009-1a71f572-c52a-417c-adcd-edf13229a92e.png)
+
+Bước 7: Load phản hồi trả ra 302
+![image](https://user-images.githubusercontent.com/74781135/201535498-67ceff22-df18-40ad-9965-5686b25156e1.png)
+
+![image](https://user-images.githubusercontent.com/74781135/201535539-bb2083d7-27e5-4376-9d78-f7192593604d.png)
+
+## Lab10: Offline password cracking
+Bước 1: Login vào tài khoản và chọn Stay logged in
+Bước 2: Trong tab Proxy > HTTP history, chuyển đến phần phản hồi yêu cầu đăng nhập, thấy cookie stay-logged-in được xây dựng như sau:
+username+':'+md5HashOfPassword
+![image](https://user-images.githubusercontent.com/74781135/201536417-df130b46-e199-4200-b4e4-23d9476e1670.png)
+
+![image](https://user-images.githubusercontent.com/74781135/201536503-4e93f614-fc24-4fa5-9245-88314d61e6f7.png)
+
+Bước 3: Vào exploit server, copy lại URL
+![image](https://user-images.githubusercontent.com/74781135/201536734-f29b7444-f77c-4e43-90ff-04487214f48a.png)
+
+Bước 4: Vào một bài viết bất ký vào để lại comment có chứa lỗi XSS
+![image](https://user-images.githubusercontent.com/74781135/201536896-70d50490-eeed-437f-adf5-fd517465b4ae.png)
+
+Bước 5: Trong exploit server, truy cập vào access log. Có một yêu cầu GET từ nạn nhân có chứa cookie stay-logged-in của họ.
+![image](https://user-images.githubusercontent.com/74781135/201537015-cec271c2-ac8b-4603-ae22-7f60900ad56d.png)
+
+Bước 6: Decode cookie thu được kết quả
+![image](https://user-images.githubusercontent.com/74781135/201537097-dd7f2492-f682-4e93-8f0c-3a66acd237e9.png)
+
+Bước 7: Decode để lấy được mật khẩu
+![image](https://user-images.githubusercontent.com/74781135/201537171-d362f3a6-0c1e-4d8d-999e-cd18d2b3ed1a.png)
+
+Bước 8: Truy cập vào tài khoản của nạn nhân, xóa tài khoản để hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/201537276-5034b8dd-7b32-4284-af0f-529f4b304d5e.png)
+
+## Lab3: Password reset broken logic
+Bước 1: Click My account -> Click forgot password. Nhập username
+Bước 2: Click Email client để xem email đặt lại mật khẩu đã được gửi. Nhấn vào link và đổi mật khẩu khác.
+Bước 3: Vào Proxy > HTTP history và gửi request POST /forgot-password?temp-forgot-password-token đến Repeater
+![image](https://user-images.githubusercontent.com/74781135/201537636-58d1f7e7-d836-4988-8582-4d3e0fafa8c6.png)
+
+Bước 4: Xóa token và gửi lại request trả về 302 chứng tỏ có thể reset password mà không cần token
+![image](https://user-images.githubusercontent.com/74781135/201537786-76001fee-0c65-4b84-b44e-ce5eb95b2eb8.png)
+
+Bước 5: Chọn forgot password thêm một lần nữa
+Bước 6: gửi request POST /forgot-password?temp-forgot-password-token đến Repeater một lần nữa. Xóa giá trị token và đổi username thành carlos
+![image](https://user-images.githubusercontent.com/74781135/201537971-563bd751-e36d-4d0a-af12-603f2b0837e5.png)
+
+Bước 7: Đăng nhập vào tài khoản carlos với mật khẩu vừa set để hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/201538044-5c8946db-c594-434a-ba27-65f803a80fda.png)
