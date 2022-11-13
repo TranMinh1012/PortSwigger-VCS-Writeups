@@ -91,3 +91,4 @@ Bước 3: Bắt request login và gửi đến Intruder. Đặt payload tại u
 ![image](https://user-images.githubusercontent.com/74781135/201504562-7f573008-2cec-4b76-99c9-efce400ac78f.png)
 ![image](https://user-images.githubusercontent.com/74781135/201504582-f1ac7bb3-df05-49aa-931d-b240fef44f9e.png)
 
+## Lab7: Username enumeration via account lock
