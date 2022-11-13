@@ -92,3 +92,20 @@ Bước 3: Bắt request login và gửi đến Intruder. Đặt payload tại u
 ![image](https://user-images.githubusercontent.com/74781135/201504582-f1ac7bb3-df05-49aa-931d-b240fef44f9e.png)
 
 ## Lab7: Username enumeration via account lock
+Bước 1: Gửi POST /login request đến Intruder
+Bước 2: Chọn kiểu tấn công Cluster bomb. Thêm payload vào username và vào cuối request body
+![image](https://user-images.githubusercontent.com/74781135/201515176-f6164cb6-7cab-49a2-9728-ee0d71f1d1d0.png)
+Bước 3: Ở tab Payloads, thêm danh sách username vào payload đầu tiên. Payload thứ hai chọn Null Payloads vào chọn tùy chọn để tạo 5 payloads và tiến hành tấn công
+![image](https://user-images.githubusercontent.com/74781135/201515295-dd811a9d-de21-4a79-b5f9-c669f6710692.png)
+![image](https://user-images.githubusercontent.com/74781135/201515323-a3c07194-5fe8-49ed-9085-ea379c8690f3.png)
+Bước 4: Có một username có phản hồi dài hơn các username khác và trả ra một thông báo lỗi khác. Lưu lại username này
+![image](https://user-images.githubusercontent.com/74781135/201515537-a937f1ed-0a36-4161-9bab-df3ea260c142.png)
+
+Bước 5:  Sử dụng username=agenda để brute-force password. Có một phản hồi không thông báo lỗi. Đấy là mật khẩu cần tìm
+![image](https://user-images.githubusercontent.com/74781135/201515673-6aa6154a-8a48-4faf-a7a0-30c5de8901c6.png)
+
+Bước 6: Nhập username=agenda, password=12345 vào và hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/201515720-e09834d1-41e4-49cf-b549-61d3f883341a.png)
+
+## Lab2: 2FA simple bypass
+Bước 1: Truy cập vào tài khoản của mình. Chọn Email Client để lấy mã.
