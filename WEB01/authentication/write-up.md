@@ -48,3 +48,46 @@ Bước 6: Sử dụng username=apple để brute-force password. Các bước t
 
 Bước 7: Nhập username=apple và password=pepper vào để hoàn thành bài lab
 ![image](https://user-images.githubusercontent.com/74781135/201257256-96db7564-c93b-404c-8f58-ae10341de6fe.png)
+
+## Lab5: Username enumeration via response timing
+Bước 1: Đăng nhập với username và password ngẫu nhiên và chặn batwss post request này. Gửi request đến Repeater
+![image](https://user-images.githubusercontent.com/74781135/201501372-cd35d024-3060-48eb-b937-68768ecd534e.png)
+
+Bước 2: Thêm trường X-Forwarded-For vào header để phá vỡ cơ chế block ip
+![image](https://user-images.githubusercontent.com/74781135/201501546-9e943b19-70a7-4023-95bf-59900e307bcb.png)
+
+Bằng cách sử dụng bộ lặp với username chính xác là "wiener" và mật khẩu có độ dài khác nhau có thể thấy rằng mật khẩu càng dài thì thởi gian phản hồi càng tăng. 
+
+Bước 3: Gửi request đến Intruder, chọn kiểu tấn công là Pitchfork. Thêm payload ở X-Forwarded-For và username và đặt một mật khẩu dài
+![image](https://user-images.githubusercontent.com/74781135/201501772-5f8f17b5-fc56-4438-94a6-4be111d834aa.png)
+
+Bước 4: Ở tab Payloads, đổi Payload type sang Numbers. Nhập khoảng từ 1 đến 100 và chọn step=1. Đặt Max fraction digits=0, điều này sẽ giúp giả mạo ip
+![image](https://user-images.githubusercontent.com/74781135/201501968-9be91be4-e69d-4ee4-9862-b8e28e4c486a.png)
+
+Bước 5: Thêm danh sách username ở payload thứ 2 và tiến hành tấn công
+![image](https://user-images.githubusercontent.com/74781135/201502008-e45eb2b7-4e41-4762-b36c-ce069af8c98d.png)
+
+Bước 6: Để xem username nào đúng cần kiểm tra thời gian phản hồi. Ở cửa sổ tấn công chọn Columns và chọn Response received, Response completed
+
+![image](https://user-images.githubusercontent.com/74781135/201502640-31c90c64-317b-4c37-b1ac-799f70ebe4ca.png)
+
+Bước 7: Sử dụng username=ak để brute-force password. Các bước tương tự như trước, chọn tham số tấn công là password. Phản hồi 302 sẽ là password đúng
+![image](https://user-images.githubusercontent.com/74781135/201502752-9d77a705-bc5a-4a93-8d43-ae35113bd082.png)
+
+Bước 8: Nhập username=ak và password=123456 vào để hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/201502771-d788d6b2-62f6-436f-90ff-605003db266c.png)
+
+## Lab6: Broken brute-force protection, IP block
+Bước 1: Thử sau 4 lần đăng nhập không thành công, địa chỉ IP đã bị chặn
+![image](https://user-images.githubusercontent.com/74781135/201504128-29c0013c-111e-4527-b529-54fa3dd763e3.png)
+
+Bước 2: Tạo danh sách tài khoản và mật khẩu mới
+
+![image](https://user-images.githubusercontent.com/74781135/201504445-a2c21b35-3538-4729-9de2-30e5db510bb0.png)
+![image](https://user-images.githubusercontent.com/74781135/201504424-aaf1a14b-6f55-41dc-be3e-63b4c3a21952.png)
+
+Bước 3: Bắt request login và gửi đến Intruder. Đặt payload tại username và password. Thêm danh sách tài khoản và mật khẩu mới vừa tạo vào lần lượt cho username và password sau đó tiến hành tấn công
+
+![image](https://user-images.githubusercontent.com/74781135/201504562-7f573008-2cec-4b76-99c9-efce400ac78f.png)
+![image](https://user-images.githubusercontent.com/74781135/201504582-f1ac7bb3-df05-49aa-931d-b240fef44f9e.png)
+
