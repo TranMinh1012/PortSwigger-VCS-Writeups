@@ -1,6 +1,6 @@
 # Authentication
 ## CÁC BÀI LAB ĐÃ HOÀN THÀNH
-![image](https://user-images.githubusercontent.com/74781135/201717527-6acdd7cf-01f5-459e-8734-f04d62d31a85.png)
+![image](https://user-images.githubusercontent.com/74781135/201722127-e9d06b3a-30c8-4ca9-a071-051c527e9bdb.png)
 ![image](https://user-images.githubusercontent.com/74781135/201717575-2b48aefd-4308-4ead-bc45-4897dc17eff6.png)
 ![image](https://user-images.githubusercontent.com/74781135/201717650-9487dfcb-7c25-4a0f-9b24-cb9fc3ef3665.png)
 
@@ -96,6 +96,12 @@ Bước 3: Bắt request login và gửi đến Intruder. Đặt payload tại u
 
 ![image](https://user-images.githubusercontent.com/74781135/201504562-7f573008-2cec-4b76-99c9-efce400ac78f.png)
 ![image](https://user-images.githubusercontent.com/74781135/201504582-f1ac7bb3-df05-49aa-931d-b240fef44f9e.png)
+
+Bước 4: Ở tab Results username=carlos và password=hunter trả ra 302
+![image](https://user-images.githubusercontent.com/74781135/201721595-f03c77a6-7818-4dc8-bce8-8fb0ad81f0e4.png)
+
+Bước 5: Login với username=carlos và password=hunter bài lab được hoàn thành
+![image](https://user-images.githubusercontent.com/74781135/201721905-bace1681-6851-410c-b257-3f654d2d0ac7.png)
 
 ## Lab7: Username enumeration via account lock
 Bước 1: Gửi POST /login request đến Intruder
