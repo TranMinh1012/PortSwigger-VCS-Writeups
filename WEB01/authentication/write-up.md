@@ -1,4 +1,9 @@
 # Authentication
+## CÁC BÀI LAB ĐÃ HOÀN THÀNH
+![image](https://user-images.githubusercontent.com/74781135/201717527-6acdd7cf-01f5-459e-8734-f04d62d31a85.png)
+![image](https://user-images.githubusercontent.com/74781135/201717575-2b48aefd-4308-4ead-bc45-4897dc17eff6.png)
+![image](https://user-images.githubusercontent.com/74781135/201717650-9487dfcb-7c25-4a0f-9b24-cb9fc3ef3665.png)
+
 ## Lab1: Username enumeration via different responses
 Bài lab này dễ bị tấn công trước các cuộc tấn công tên người dùng và các cuộc tấn công brute-force. Nó có một tài khoản có tên người dùng và mật khẩu có thể dự đoán được, có thể được tìm thấy trong các danh sách.
 
