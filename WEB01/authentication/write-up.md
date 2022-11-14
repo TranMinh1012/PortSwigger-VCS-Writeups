@@ -62,6 +62,7 @@ Bước 3: Gửi request đến Intruder, chọn kiểu tấn công là Pitchfor
 ![image](https://user-images.githubusercontent.com/74781135/201501772-5f8f17b5-fc56-4438-94a6-4be111d834aa.png)
 
 Bước 4: Ở tab Payloads, đổi Payload type sang Numbers. Nhập khoảng từ 1 đến 100 và chọn step=1. Đặt Max fraction digits=0, điều này sẽ giúp giả mạo ip
+
 ![image](https://user-images.githubusercontent.com/74781135/201501968-9be91be4-e69d-4ee4-9862-b8e28e4c486a.png)
 
 Bước 5: Thêm danh sách username ở payload thứ 2 và tiến hành tấn công
@@ -93,6 +94,7 @@ Bước 3: Bắt request login và gửi đến Intruder. Đặt payload tại u
 
 ## Lab7: Username enumeration via account lock
 Bước 1: Gửi POST /login request đến Intruder
+
 Bước 2: Chọn kiểu tấn công Cluster bomb. Thêm payload vào username và vào cuối request body
 ![image](https://user-images.githubusercontent.com/74781135/201515176-f6164cb6-7cab-49a2-9728-ee0d71f1d1d0.png)
 Bước 3: Ở tab Payloads, thêm danh sách username vào payload đầu tiên. Payload thứ hai chọn Null Payloads vào chọn tùy chọn để tạo 5 payloads và tiến hành tấn công
@@ -139,6 +141,7 @@ Bước 7: Load phản hồi trả ra 302
 
 ## Lab10: Offline password cracking
 Bước 1: Login vào tài khoản và chọn Stay logged in
+
 Bước 2: Trong tab Proxy > HTTP history, chuyển đến phần phản hồi yêu cầu đăng nhập, thấy cookie stay-logged-in được xây dựng như sau:
 username+':'+md5HashOfPassword
 ![image](https://user-images.githubusercontent.com/74781135/201536417-df130b46-e199-4200-b4e4-23d9476e1670.png)
@@ -165,6 +168,7 @@ Bước 8: Truy cập vào tài khoản của nạn nhân, xóa tài khoản đ�
 
 ## Lab3: Password reset broken logic
 Bước 1: Click My account -> Click forgot password. Nhập username
+
 Bước 2: Click Email client để xem email đặt lại mật khẩu đã được gửi. Nhấn vào link và đổi mật khẩu khác.
 Bước 3: Vào Proxy > HTTP history và gửi request POST /forgot-password?temp-forgot-password-token đến Repeater
 ![image](https://user-images.githubusercontent.com/74781135/201537636-58d1f7e7-d836-4988-8582-4d3e0fafa8c6.png)
@@ -178,3 +182,22 @@ Bước 6: gửi request POST /forgot-password?temp-forgot-password-token đến
 
 Bước 7: Đăng nhập vào tài khoản carlos với mật khẩu vừa set để hoàn thành bài lab
 ![image](https://user-images.githubusercontent.com/74781135/201538044-5c8946db-c594-434a-ba27-65f803a80fda.png)
+
+## Lab11: Password reset poisoning via middleware
+Bước 1: Click My account -> Click forgot password. Nhập username=wiener
+
+Bước 2: Vào exploit server -> email client
+
+Bước 3: Vào Proxy > HTTP history tìm POST /forgot-password và gửi đến Repeater
+
+Bước 4: Thêm trường X-Forwarded-Host và sửa username=carlos
+![image](https://user-images.githubusercontent.com/74781135/201714366-63336f8b-a980-4e26-ac3d-99d9a99a43dc.png)
+
+Bước 5: Vào Access log. Copy token
+![image](https://user-images.githubusercontent.com/74781135/201714686-e68ee5f1-977f-4cae-aaed-508598797c43.png)
+
+Bước 6: Quay lại email client và copy link, thay đổi token bằng token đã lưu trước đó
+![image](https://user-images.githubusercontent.com/74781135/201715896-dcbe2aac-bf5e-4189-b07c-fe12d360b89f.png)
+
+Bước 7: Nhập mật khẩu mới vào thử login và user carlos. Login thành công bài lab được hoàn thành
+![image](https://user-images.githubusercontent.com/74781135/201715732-5618418f-699f-402d-8b8c-72a7760cf420.png)
