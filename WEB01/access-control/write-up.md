@@ -1,4 +1,6 @@
 # Access control
+## CÁC BÀI LAB ĐÃ HOÀN THÀNH
+Đã hoàn thành tất cả các bài lab thuộc phần Access Control
 ## Vertical privilege escalation
 **Lab1: Unprotected admin functionality**
 
@@ -59,6 +61,7 @@ Bước 4: Thêm query parameter: username=carlos và sửa X-Original-URL: /adm
 ![image](https://user-images.githubusercontent.com/74781135/201673008-0ee3e15c-b7cb-45e7-8dcc-d4caf70a8fd4.png)
 
 **Lab11: Method-based access control can be circumvented**
+
 Bước 1: Login vào tài khoản administrator. Chọn Admin panel. Thử nâng quyền user carlos, bắt request này và gửi đến Repeater
 ![image](https://user-images.githubusercontent.com/74781135/201679053-f4730fe3-b320-4179-9c66-329a0b6edd14.png)
 
