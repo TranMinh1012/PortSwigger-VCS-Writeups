@@ -287,3 +287,67 @@ Bước 2: Thay đổi TrackingId=UPwCcYVrM8xRDKTX'||pg_sleep(10)--
 Bài lab được hoàn thành
 
 ![image](https://user-images.githubusercontent.com/74781135/203088372-f90bedff-eda8-41b4-a716-64c47a2cc299.png)
+
+**Lab: Blind SQL injection with time delays and information retrieval** (Có tham khảo solution)
+
+Bước 1: Bắt request có chứa TrackingId và gửi đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/203092517-dda7ffad-647d-4c51-b5a3-c10a0ee43eb4.png)
+
+Bước 2: Thay đổi TrackingId=EIevL183HZTXPvQ8'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+
+Mất 10s để phản hồi
+
+Bước 3: Thay đổi TrackingId=EIevL183HZTXPvQ8'%3BSELECT+CASE+WHEN+(usernam='administrator')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+
+Vẫn mất 10s để phản hổi chứng tỏ có tồn tại username administrator trong bảng users
+
+Bước 4: Xác định xem có bao nhiêu ký tự trong mật khẩu
+
+![image](https://user-images.githubusercontent.com/74781135/203095429-67a56495-3384-4904-ad33-56647f94f0d6.png)
+
+Bước 5: Gửi request đến Intruder để tìm mật khẩu chính xác. Thêm payloads, chọn kiểu tấn công là Cluster Bomb
+
+![image](https://user-images.githubusercontent.com/74781135/203096223-566c6213-b7a2-44ec-9d00-333b7a39f545.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203096461-f213012c-0f91-41e3-a390-bfafabc8056f.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203096643-69a5f3f9-2044-4ffb-a0ba-84ae22a7996d.png)
+
+Bước 6: Sau khi quét xong thu được mật khẩu là: 
+
+**Lab: Blind SQL injection with out-of-band interaction** (Có tham khảo solution)
+
+Bước 1: Bắt request có chứa TrackingId và gửi đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/203101251-10c6f9a9-88c8-4258-9a07-12ee9e431fde.png)
+
+Bước 2: Thay đổi giá trị TrackingId
+
+![image](https://user-images.githubusercontent.com/74781135/203101801-2f45281e-fa28-4695-8960-0fedc30e96b2.png)
+
+Bước 3: Mở Burp Collaborator client. Copy đường dẫn: 143dxs61pfejum5lhc5olqnl4ca3yumj.oastify.com và paste lại vào TrackingId
+
+![image](https://user-images.githubusercontent.com/74781135/203103686-ac38a9ba-5941-4cbb-bd01-375592001c8a.png)
+
+Bài lab được hoàn thành
+
+![image](https://user-images.githubusercontent.com/74781135/203103799-3572436e-531b-4221-940b-5c90e60e3802.png)
+
+**Lab: Blind SQL injection with out-of-band data exfiltration** (Có tham khảo solution)
+
+Bước 1: Bắt request có chứa TrackingId và gửi đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/203104487-4934c7e8-b047-453f-84a7-c8853eccee10.png)
+
+Bước 2: Bật Burp Collaborator client, copy đường dẫn. Sau đó thay đổi giá trị của TrackingId. Gửi request
+
+![image](https://user-images.githubusercontent.com/74781135/203105064-a2aef216-f889-4011-aa1b-b703d4333d39.png)
+
+Bước 3: Vào Burp Collaborator client, chọn Poll now. Click vào một dòng bất kỳ. Password chính là subdomain
+
+![image](https://user-images.githubusercontent.com/74781135/203110348-8d271f82-93e5-4d3c-aa51-fb4297382d7f.png)
+
+Bước 4: Đăng nhập vào administrator để hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/203110566-9ea2ff5c-e241-465c-bb17-7e639906b09c.png)
