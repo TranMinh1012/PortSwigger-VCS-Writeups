@@ -118,4 +118,99 @@ Truy cập vào tài khoản administrator và hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/202999329-7fdfe42c-4880-4dee-8ad9-b8b341d8c3c8.png)
 
+## Examining the database
+### Querying the database type and version
+**Lab: SQL injection attack, querying the database type and version on Oracle** (Có tham khảo solution)
+
+Xác định được có 2 cột và đều là kiểu dữ liệu chuỗi
+
+![image](https://user-images.githubusercontent.com/74781135/203008271-487d665d-6b7a-442f-8dc7-d2d9f7c01f48.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203008368-c59a2a2e-fb19-4e6b-ad91-5fe0da4bee41.png)
+
+Thay giá trị của parameter category để lấy được version 
+
+![image](https://user-images.githubusercontent.com/74781135/203008879-576a19a8-7d07-4f91-819f-7a4394cf74cb.png)
+
+Sử dụng BANNER vì:
+
+![image](https://user-images.githubusercontent.com/74781135/203009236-40f1f140-cf9c-4925-a555-935b4cab29d5.png)
+
+**Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft**
+
+Xác định được có 2 cột và đều là kiểu dữ liệu chuỗi
+
+![image](https://user-images.githubusercontent.com/74781135/203013537-3d2ad0bd-6013-4710-93d9-cf167acaeaba.png)
+
+Thay giá trị của parameter category để lấy được version
+
+![image](https://user-images.githubusercontent.com/74781135/203014496-8a294ce0-2f97-4f00-81f8-091e09b41f0c.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203013831-0642cfbc-e831-4a5c-8477-4a3ad48895b9.png)
+
+### Listing the contents of the database
+**SQL injection attack, listing the database contents on non-Oracle databases**
+
+Xác định được có 2 cột và đều là kiểu dữ liệu chuỗi
+
+![image](https://user-images.githubusercontent.com/74781135/203022933-599347f8-7ae2-4ae1-b6a1-5f04930f062e.png)
+
+Liệt kê các schema và các bảng có trong csdl
+
+![image](https://user-images.githubusercontent.com/74781135/203023567-61c57bab-ba05-4400-af23-47d58a25c80a.png)
+
+Trong số các bảng được liệt kê ra có bảng chứa thông tin users
+
+![image](https://user-images.githubusercontent.com/74781135/203023824-b8271a38-6b39-4897-bd6a-6a8c972f147d.png)
+
+Xem trong bảng users_nbmjgq có những cột nào
+
+![image](https://user-images.githubusercontent.com/74781135/203024790-e6f078db-bb94-4353-854e-51cad9c6e933.png)
+
+Liệt kê danh sách username và password
+
+![image](https://user-images.githubusercontent.com/74781135/203025455-504b7f44-ad61-4a0d-b266-08466338d843.png)
+
+Đăng nhập vào administrator và hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/203025684-3a654059-1d8a-4112-bc85-8271503d9166.png)
+
+**SQL injection attack, listing the database contents on Oracle**
+
+**Link tham khảo:**
+
+https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2105.htm#REFRN20286
+
+https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2094.htm
+
+Xác định được có 2 cột và đều là kiểu dữ liệu chuỗi
+
+![image](https://user-images.githubusercontent.com/74781135/203026411-9ead4853-800e-4296-b218-5c680b18016b.png)
+
+Liệt kê danh sách các bảng trong cơ sở dữ liệu
+
+![image](https://user-images.githubusercontent.com/74781135/203026818-323d72c4-6b7a-4976-b5f0-69b68f034141.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203026932-a0e06d38-2523-4312-bded-da9b2d15fd19.png)
+
+Trong số các bảng vừa liệt kê có bảng chứa thông tin users
+
+![image](https://user-images.githubusercontent.com/74781135/203027243-7b66dcb3-a2ef-495d-974d-fcc9430857c4.png)
+
+Xem trong bảng USERS_UEUXPI có những cột nào
+
+![image](https://user-images.githubusercontent.com/74781135/203028059-8a0f61d3-f412-438e-aabd-e1e91339f88c.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203028114-c5ce4443-347c-4f9b-8833-b46024f66df2.png)
+
+Liệt kê danh sách username và password
+
+![image](https://user-images.githubusercontent.com/74781135/203028514-2c13553b-7c84-4b16-b4df-279e8d8c735e.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203028602-9cc01409-8a8c-49af-b6c4-5ca2ab5fc9e9.png)
+
+Đăng nhập vào administrator để hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/203028795-4e071c23-8c61-4db1-bd63-f5d99c59abb8.png)
+
 
