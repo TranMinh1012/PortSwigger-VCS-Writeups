@@ -213,4 +213,77 @@ Liệt kê danh sách username và password
 
 ![image](https://user-images.githubusercontent.com/74781135/203028795-4e071c23-8c61-4db1-bd63-f5d99c59abb8.png)
 
+## Blind SQL injection
+**Lab: Blind SQL injection with conditional responses** (Có tham khảo solution)
 
+Bước 1: Bắt request có chứa TrackingId và gửi đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/203067658-414fe084-a6f2-4b29-9da7-6d91c355a4ed.png)
+
+Bước 2: Thay đổi TrackingId. Xuất hiện thông báo Welcome back
+
+![image](https://user-images.githubusercontent.com/74781135/203068139-83ffffab-230e-40f9-b037-4fc18324130f.png)
+
+Bước 3: Thay đổi TrackingId. Không xuất hiện thông báo Welcome back
+
+![image](https://user-images.githubusercontent.com/74781135/203068887-280510e6-ec43-4e57-9c98-dc5b337bb755.png)
+
+Bước 4: Thay đổi TrackingId=gJGmqPiif2kli2R7' AND (SELECT 'a' FROM users LIMIT 1)='a. Có xuất hiện thông báo Welcome back => có bảng users
+
+![image](https://user-images.githubusercontent.com/74781135/203069533-fee9d7b1-f48c-4e2d-ad70-8f8ad69a1fa5.png)
+
+Bước 5: Thay đổi TrackingId=gJGmqPiif2kli2R7' AND (SELECT 'a' FROM users WHERE username='administrator')='a. Có xuất hiện thông báo Welcom back => có users administrator
+
+![image](https://user-images.githubusercontent.com/74781135/203070193-9a0516bd-4115-4345-b7c7-641fc9892f73.png)
+
+Bước 6: Xác định xem có bao nhiêu ký tự trong mật khẩu của administrator
+
+![image](https://user-images.githubusercontent.com/74781135/203070841-b5227e8a-dba3-41c1-a45d-d8472e919610.png)
+
+=> Mật khẩu có độ dài lớn hơn 1
+
+Bước 7: Sử dụng Intruder để xác định chính xác số ký tự trong mật khẩu của administrator
+
+![image](https://user-images.githubusercontent.com/74781135/203071562-79c9fd12-afd7-4dc4-96a4-f6019e264911.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203071830-b851627f-c41b-42bc-8822-26a00c91362a.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203071967-20aceb64-5a76-430e-9b4c-15455c8c40d7.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203072263-52736681-eb27-4d5b-a906-e9f5ae567890.png)
+
+=> Password có 20 ký tự
+
+Bước 8: Kiểm tra ký tự ở từng vị trí để xác định giá trị của nó
+
+![image](https://user-images.githubusercontent.com/74781135/203073450-32fb00f9-c7ee-495e-a0ca-111c963af3d6.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203073687-c0bb3d44-a942-415d-8498-c9427785a30e.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203073725-5f49c86b-d080-41e4-8c81-15bee09ea911.png)
+
+![image](https://user-images.githubusercontent.com/74781135/203073959-52571f43-3144-4c60-9db3-cbcb0b38bb14.png)
+
+=> Ký tự đầu tiên của mật khẩu là '7'
+
+Bước 9: Làm tương tự đến khi lấy được toàn bộ mật khẩu là: **7uzje0sv01nqbe10yr2w**
+
+Bước 10: Đăng nhập vào tài khoản administrator để hoàn thành bài lab
+![image](https://user-images.githubusercontent.com/74781135/203076087-f9d29f7a-3ee3-45ef-a700-9b0acd585478.png)
+
+**Lab: Blind SQL injection with conditional errors**
+
+### Exploiting blind SQL injection by triggering time delays
+**Lab: Blind SQL injection with time delays**
+
+Bước 1: Bắt request có chứa TrackingId
+
+![image](https://user-images.githubusercontent.com/74781135/203087852-0e81bb7c-f0e1-49da-b12a-8fd7bc857b27.png)
+
+Bước 2: Thay đổi TrackingId=UPwCcYVrM8xRDKTX'||pg_sleep(10)--
+
+![image](https://user-images.githubusercontent.com/74781135/203087956-e125b86c-b4cd-4fe7-aa6f-0d97eb05bc02.png)
+
+Bài lab được hoàn thành
+
+![image](https://user-images.githubusercontent.com/74781135/203088372-f90bedff-eda8-41b4-a716-64c47a2cc299.png)
