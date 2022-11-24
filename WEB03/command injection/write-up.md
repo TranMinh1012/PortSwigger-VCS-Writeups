@@ -49,6 +49,8 @@ Bước 2: Thay đổi giá trị của **email=minh%40gmail.com;whoami>/var/www
 
 ![image](https://user-images.githubusercontent.com/74781135/203728342-15920c64-cbbc-4af6-9f29-be01d156e815.png)
 
+output của lệnh whoami sẽ được lưu vào file minh.txt
+
 Bước 3: Truy cập vào một sản phẩm bất kỳ. Bắt request lấy ảnh và gửi đến Repeater
 
 ![image](https://user-images.githubusercontent.com/74781135/203728615-624156a8-c5fe-4433-ad79-d034b585ef54.png)
