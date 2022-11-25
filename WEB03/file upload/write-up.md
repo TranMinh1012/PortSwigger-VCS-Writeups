@@ -101,3 +101,78 @@ Bước 7: Truy cập đến đường dẫn file exploit.php và gửi request 
 Bước 8: Submit để hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/203898889-d8a682df-ef0e-480a-848b-b84951b13745.png)
+
+## Insufficient blacklisting of dangerous file types
+**Lab 4: Web shell upload via extension blacklist bypass**
+
+Cách 1: Tải file có đuôi `.phtml` với nội dung `<?php echo file_get_contents('/home/carlos/secret'); ?>` 
+
+![image](https://user-images.githubusercontent.com/74781135/204010449-6e0a642d-821b-4c8a-b75e-a71b623d50ab.png)
+
+![image](https://user-images.githubusercontent.com/74781135/204010581-723f9eed-03e7-45fe-b612-348e03a81e22.png)
+
+![image](https://user-images.githubusercontent.com/74781135/204010666-1308d160-47c0-4104-a1aa-6fc7493e31d9.png)
+
+Cách 2 (Có tham khảo solution): 
+
+Ứng dụng này sử dụng máy chủ apache, tải lên tệp .htaccess tùy chỉnh để ánh xạ phần mở rộng `.ttm` sang PHP
+
+![image](https://user-images.githubusercontent.com/74781135/204011605-830238cc-8441-4601-8d88-b36ff97ebae5.png)
+
+Tải file `exploit.ttm` với nội dung `<?php echo file_get_contents('/home/carlos/secret'); ?>` 
+
+![image](https://user-images.githubusercontent.com/74781135/204011998-61efc133-91c5-4e38-bfef-be6fd507905a.png)
+
+Gọi file exploit.ttm sẽ thực thi mã PHP và hiển thị chuỗi bí mật
+
+![image](https://user-images.githubusercontent.com/74781135/204012561-fdd5fab5-6953-468c-a79a-1614964aa718.png)
+
+## Obfuscating file extensions
+**Lab 5: Web shell upload via obfuscated file extension**
+
+Bước 1: Thử tải một file php lên để làm avatar thì thấy thông báo chỉ chấp nhận file jpg và png
+
+![image](https://user-images.githubusercontent.com/74781135/204014902-de39ee9f-741e-4807-ac5e-58878524474c.png)
+
+Bước 2: Trong Proxy > HTTP history, tìm đến request method POST vừa up file php và gửi đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/204015211-e9d9eee9-7256-4e12-ad27-1be49aaa50f8.png)
+
+Bước 3: Thử tải lên tệp `exploit.php%00.jpg` (%00-byte rỗng để kết thúc tên tệp sớm) với nội dung `<?php echo file_get_contents('/home/carlos/secret'); ?>` thì thấy tải lên thành công
+
+![image](https://user-images.githubusercontent.com/74781135/204015879-8ec62a3f-e163-4288-b537-fe4a7af7b81f.png)
+
+Bước 4: Gọi file exploit.php sẽ thực thi mã PHP và hiển thị chuỗi bí mật
+
+![image](https://user-images.githubusercontent.com/74781135/204016189-8076bfe2-2497-4317-b26c-1e15c7246eed.png)
+
+Bước 5: Submit để hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/204016303-471ceb95-571a-45f6-b60b-09f1b873bd88.png)
+
+## Flawed validation of the file's contents
+**Lab 6: Remote code execution via polyglot web shell upload**
+
+Bước 1: Thử tải lên một file php nhưng không thành công
+
+![image](https://user-images.githubusercontent.com/74781135/204017747-e24ed3ef-d42f-4a5e-82c9-9bb2b18e03c5.png)
+
+Bước 2: Có thể thấy việc tải lên file php chứa đoạn mã để thực thi là không được. Thử tạo ra một file hình ảnh giả mạo có chứa đoạn mã thực thi. Thử tạo file PNG giả mạo. Một số tệp tự nhận dạng bằng cách bắt đầu bằng một chữ ký cố định. Đối với PNG:
+
+![image](https://user-images.githubusercontent.com/74781135/204018864-e38f7607-b35c-40b5-bbf2-d800e2e3ce80.png)
+
+Nếu quá trình xác thực chỉ kiểm tra chữ ký này, có thể bỏ qua nó bằng cách bắt đầu tệp của với tám byte này.
+
+Bước 3: Convert `<?php echo file_get_contents('/home/carlos/secret'); ?>` sang dạng HEX
+
+![image](https://user-images.githubusercontent.com/74781135/204019347-98c89402-0c6e-4b2f-85bf-0635039fea2e.png)
+
+Bước 4: Chèn 8 byte vào và chuyển đổi lại
+
+![image](https://user-images.githubusercontent.com/74781135/204020018-70571c30-f1f5-4784-9cad-8fb39f87ef6d.png)
+
+Bước 5: Tải lên file exploit.php với nội dung vừa được chuyển đổi
+
+
+
+
