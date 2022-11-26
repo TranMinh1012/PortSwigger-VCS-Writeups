@@ -173,6 +173,12 @@ Bước 4: Chèn 8 byte vào và chuyển đổi lại
 
 Bước 5: Tải lên file exploit.php với nội dung vừa được chuyển đổi
 
+![image](https://user-images.githubusercontent.com/74781135/204067612-3ae31cef-f0cf-4ddd-b627-7b4c7e6de822.png)
 
+Bước 6: Gọi file exploit.php sẽ thực thi mã PHP và hiển thị chuỗi bí mật
 
+![image](https://user-images.githubusercontent.com/74781135/204067674-e5f4eb47-c0b8-4339-a5c6-ced294e771c8.png)
 
+Bước 7: Submit để hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/204067691-431a95f8-203e-4a9c-aabf-c554a74ec847.png)
