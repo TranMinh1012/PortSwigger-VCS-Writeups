@@ -63,7 +63,11 @@ Trong trường hợp các ký tự nằm trong phạm vi ASCII thông thường
 
 Máy chủ thường thực hiển 1 cấp độ giải mã URL khi nhận được yêu cầu nên mã hóa "../" thành "%2e%2e%2f" là không đủ. Để vượt qua cấp độ này cần mã hóa cả ký tự "%"
 
-![image](https://user-images.githubusercontent.com/74781135/203571225-8e05e028-4c9e-457f-983c-eaf6d0a9a25f.png)
+`. --> %2e`
+
+`/ --> %2f`
+
+`% --> %25`
 
 Do đó "../" sẽ mã hóa thành "%252e%252e%252f".
 
