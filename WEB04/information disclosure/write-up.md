@@ -19,7 +19,7 @@ Ta nhận được phản hồi như sau
 
 Có thể thấy trang web sử dụng **Apache Struts 2 2.3.31**
 
-Bước 3: Nhập 2 2.3.31 để hoàn thành bài lab
+Bước 3: Nhập **2 2.3.31** để hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/204842980-fa5f7bab-30c2-43d7-926a-8b59af86ac5f.png)
 
