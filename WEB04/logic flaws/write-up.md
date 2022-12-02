@@ -82,3 +82,9 @@ Bước 7: Thêm một sản phẩm bất kỳ vào giỏ hàng và điều ch�
 Bước 8: Click Place order mua sản phẩm và hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/205204609-97c3979c-3ab6-472e-8fab-d1abb63e50c5.png)
+
+**Lab 6: Inconsistent handling of exceptional input**
+
+## Trusted users won't always remain trustworthy
+**Lab 3: Inconsistent security controls**
+
