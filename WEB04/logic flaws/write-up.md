@@ -83,52 +83,35 @@ Bước 8: Click Place order mua sản phẩm và hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/205204609-97c3979c-3ab6-472e-8fab-d1abb63e50c5.png)
 
-**Lab 6: Inconsistent handling of exceptional input**
+**Lab 6: Inconsistent handling of exceptional input**(Có tham khảo solution)
 
-## Users won't always follow the intended sequence
-**Lab 8: Insufficient workflow validation**
+Bước 1: Đăng ký tài khoản với email được cung cấp
 
-Bước 1: Đăng nhập vào tài khoản được cung cấp 
+![image](https://user-images.githubusercontent.com/74781135/205579153-b13b6135-12ab-4dee-b57c-a48e31005f94.png)
 
-Bước 2: Thêm sản phẩm **Lightweight l33t leather jacket** vào giỏ hàng
+![image](https://user-images.githubusercontent.com/74781135/205579303-c25e0046-2f63-4781-a570-146fe6afb69a.png)
 
-Bước 3: Click Place order và xem request
+![image](https://user-images.githubusercontent.com/74781135/205579422-8735758f-a538-420a-94cb-6da085106de1.png)
 
-![image](https://user-images.githubusercontent.com/74781135/205538993-a0622d2b-2a6a-4369-9d72-591f8f83c039.png)
+Không có điều gì đặc biệt xảy ra trong quá trình đăng ký tài khoản mới
 
-Việc thanh toán sẽ trả ra `303 See Other`. Điểm đặc biệt là ở **Location** chứa đường dẫn thông báo lỗi.
+Bước 4: Thử thêm null byte để ứng dụng nghĩ là người dùng Dontwannacry
 
-Bước 4: Thử mua một sản phẩm có thể mua
+![image](https://user-images.githubusercontent.com/74781135/205580668-04981b7f-6c38-4387-8148-871229589675.png)
 
-![image](https://user-images.githubusercontent.com/74781135/205540102-992ff0ec-8db9-41a7-96b7-11f9c9da47b6.png)
+![image](https://user-images.githubusercontent.com/74781135/205581181-f3d29b89-dd44-48a3-997c-4642f2f34b97.png)
 
-Chuyển hướng đi đến một trang khác với xác nhận đơn hàng.
+Hệ thống không chấp nhận
 
-Bước 5: Mua lại sản phẩm **Lightweight l33t leather jacket**, chặn request và thay đổi chuyển hướng
+Bước 5: Thử đăng ký với email một chuỗi dài và đảm bảo ký tự `m` trong **@dontwannacry.com** là ký tự 255
 
-![image](https://user-images.githubusercontent.com/74781135/205540596-82bc2bbf-cf04-4a13-a9d8-56e4a5f99ee3.png)
+![image](https://user-images.githubusercontent.com/74781135/205587641-90521761-00d8-435a-87e0-59faf8f5151c.png)
 
-![image](https://user-images.githubusercontent.com/74781135/205540681-5666f9b6-5d6b-4318-ad38-2249afdb4fb1.png)
+![image](https://user-images.githubusercontent.com/74781135/205587687-d9b37cfd-e4d1-4952-872b-6f4abbab4ed6.png)
 
-**Lab 9: Authentication bypass via flawed state machine**
+Bước 6: Xóa carlos để hoàn thành bài lab
 
-Bước 1: Đăng nhập vào tài khoản được cung cấp
-
-Bước 2: Chọn role là User và xem request
-
-![image](https://user-images.githubusercontent.com/74781135/205542262-486ff493-26f2-4bb5-8c41-bf4edc91070f.png)
-
-Bước 3: Thử thay đổi role thành `admin` và `administrator` nhưng không có gì đặc biệt xảy ra
-
-Thử Drop request chọn role
-
-Bước 4: Đăng nhập lại vào tài khoàn `wiener:peter`, chăn request và drop request chọn role. Quay lại trang My account thì thấy đã login vào tài khoản quản trị viên
-
-![image](https://user-images.githubusercontent.com/74781135/205543802-1c452a73-c8b4-442b-88ce-f62a6154be00.png)
-
-Bước 5: Xóa Carlos để hoàn thành bài lab
-
-![image](https://user-images.githubusercontent.com/74781135/205543858-f00be100-0905-4fb7-984a-d292812baec2.png)
+![image](https://user-images.githubusercontent.com/74781135/205587917-334b0feb-688b-4de9-a273-ca7127774189.png)
 
 ## Trusted users won't always remain trustworthy
 **Lab 3: Inconsistent security controls**
@@ -180,6 +163,51 @@ Bước 6: Xóa carlos để hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/205547563-336e7d03-d3bd-4b85-a54a-87e90e20f7bb.png)
 
+## Users won't always follow the intended sequence
+**Lab 8: Insufficient workflow validation**
+
+Bước 1: Đăng nhập vào tài khoản được cung cấp 
+
+Bước 2: Thêm sản phẩm **Lightweight l33t leather jacket** vào giỏ hàng
+
+Bước 3: Click Place order và xem request
+
+![image](https://user-images.githubusercontent.com/74781135/205538993-a0622d2b-2a6a-4369-9d72-591f8f83c039.png)
+
+Việc thanh toán sẽ trả ra `303 See Other`. Điểm đặc biệt là ở **Location** chứa đường dẫn thông báo lỗi.
+
+Bước 4: Thử mua một sản phẩm có thể mua
+
+![image](https://user-images.githubusercontent.com/74781135/205540102-992ff0ec-8db9-41a7-96b7-11f9c9da47b6.png)
+
+Chuyển hướng đi đến một trang khác với xác nhận đơn hàng.
+
+Bước 5: Mua lại sản phẩm **Lightweight l33t leather jacket**, chặn request và thay đổi chuyển hướng
+
+![image](https://user-images.githubusercontent.com/74781135/205540596-82bc2bbf-cf04-4a13-a9d8-56e4a5f99ee3.png)
+
+![image](https://user-images.githubusercontent.com/74781135/205540681-5666f9b6-5d6b-4318-ad38-2249afdb4fb1.png)
+
+**Lab 9: Authentication bypass via flawed state machine**
+
+Bước 1: Đăng nhập vào tài khoản được cung cấp
+
+Bước 2: Chọn role là User và xem request
+
+![image](https://user-images.githubusercontent.com/74781135/205542262-486ff493-26f2-4bb5-8c41-bf4edc91070f.png)
+
+Bước 3: Thử thay đổi role thành `admin` và `administrator` nhưng không có gì đặc biệt xảy ra
+
+Thử Drop request chọn role
+
+Bước 4: Đăng nhập lại vào tài khoàn `wiener:peter`, chăn request và drop request chọn role. Quay lại trang My account thì thấy đã login vào tài khoản quản trị viên
+
+![image](https://user-images.githubusercontent.com/74781135/205543802-1c452a73-c8b4-442b-88ce-f62a6154be00.png)
+
+Bước 5: Xóa Carlos để hoàn thành bài lab
+
+![image](https://user-images.githubusercontent.com/74781135/205543858-f00be100-0905-4fb7-984a-d292812baec2.png)
+
 ## Domain-specific flaws
 **Lab 4: Flawed enforcement of business rules**
 
@@ -220,3 +248,35 @@ Bước 7: Sử dụng sen kẽ các mã giảm giá đến khi muc được hà
 Bước 8: Chọn Place order để mua sản phẩm và hoàn thành bài lab
 
 ![image](https://user-images.githubusercontent.com/74781135/205536794-a6487fc9-e9ff-4667-a442-0ce3effd7eee.png)
+
+**Lab 10: Infinite money logic flaw**
+
+Bước 1: Đăng nhập vào tài khoản được cung cấp
+
+![image](https://user-images.githubusercontent.com/74781135/205589197-3bea62ea-b58d-4d37-8360-a1889ba95eeb.png)
+
+Có thể sử dụng thẻ quà tặng và có thể truy cập vào email
+
+Bước 2: Thử mua một thẻ quà tặng
+
+![image](https://user-images.githubusercontent.com/74781135/205589987-0f091762-0fb7-4c90-a908-8ffc70e486d9.png)
+
+Nhận được đồng thời một email cũng chứa mã code 
+
+![image](https://user-images.githubusercontent.com/74781135/205590153-2c6c6d65-d730-41d3-a822-2b9e594748ad.png)
+
+Bước 3: Thử add mã thể quà tặng vào phiếu giảm giá 
+
+![image](https://user-images.githubusercontent.com/74781135/205590669-85fbf76f-a1b5-4bf8-b568-3a7ccdba6607.png)
+
+Bước 4: Đăng ký để nhận mã giảm giá 
+
+![image](https://user-images.githubusercontent.com/74781135/205591979-5d3d15a8-04ab-4633-bf0e-d49723cf1078.png)
+
+Bước 5: Thử add mã giảm giá để mua thẻ quà tặng
+
+![image](https://user-images.githubusercontent.com/74781135/205593193-d98ad263-e4d4-47a0-ad66-2ff49033a3e6.png)
+
+Bước 6: Add lại hai thẻ quà tặng
+
+![image](https://user-images.githubusercontent.com/74781135/205593399-0a1be958-3332-426a-99c3-611e0fb60905.png)
