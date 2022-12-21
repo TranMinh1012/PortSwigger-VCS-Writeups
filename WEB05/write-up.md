@@ -32,3 +32,5 @@ Bước 7: Bài lab được hoàn thành
 
 ![image](https://user-images.githubusercontent.com/74781135/208817495-1e119006-0eaf-444a-8304-9aed5df2d6d7.png)
 
+## SSRF attacks against other back-end systems
+**Lab 2: Basic SSRF against another back-end system**
