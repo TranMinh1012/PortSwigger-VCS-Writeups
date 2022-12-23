@@ -78,3 +78,4 @@ Bài lab được hoàn thành
 Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`
 
 Bước 2: Tạo một file DTD trên exploit server
+
