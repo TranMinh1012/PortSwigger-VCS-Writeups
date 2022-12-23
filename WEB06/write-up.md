@@ -58,3 +58,23 @@ Bài lab được hoàn thành
 
 **Lab 4: Blind XXE with out-of-band interaction via XML parameter entities**
 
+Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`
+
+Bước 2: Gửi request đến Repeater, chỉnh sửa request
+
+![image](https://user-images.githubusercontent.com/74781135/209294971-b9b23758-b984-4450-a784-a263b659980c.png)
+
+Phía Burp Collaborator xuất hiện 1 số tương tác DNS và HTTP
+
+![image](https://user-images.githubusercontent.com/74781135/209295117-0af45e2b-7812-4f7a-a709-de027d097244.png)
+
+Bài lab được hoàn thành 
+
+![image](https://user-images.githubusercontent.com/74781135/209295225-677ee5e8-2b75-41b9-919f-5111e1c9d5ae.png)
+
+## Exploiting blind XXE to exfiltrate data out-of-band
+**Lab 5: Exploiting blind XXE to exfiltrate data using a malicious external DTD**
+
+Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`
+
+Bước 2: Tạo một file DTD trên exploit server
