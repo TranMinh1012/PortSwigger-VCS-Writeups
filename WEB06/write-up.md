@@ -79,3 +79,82 @@ Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`
 
 Bước 2: Tạo một file DTD trên exploit server
 
+![image](https://user-images.githubusercontent.com/74781135/209417272-bee1b72f-5eb2-43a2-8196-47551b6b4484.png)
+
+Bước 3: Chỉnh sửa request
+
+![image](https://user-images.githubusercontent.com/74781135/209417346-0519051f-b621-4720-bbf1-cecab8f5af28.png)
+
+Sau khi gửi request độc hại, các request được ghi lại trên exploit server
+
+![image](https://user-images.githubusercontent.com/74781135/209417361-1f6d66ad-cff7-4180-8145-b50353c0260d.png)
+
+Đầu tiên là ứng dụng tải file DTD độc hại, thứ 2 là đánh cắp tên máy chủ
+
+Bài lab được hoàn thành
+
+![image](https://user-images.githubusercontent.com/74781135/209417418-e527175c-5329-480d-9c3c-3fcdcb08d88b.png)
+
+## Exploiting blind XXE to retrieve data via error messages
+**Lab 6: Exploiting blind XXE to retrieve data via error messages**
+
+Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`
+
+Bước 2: Tạo một file DTD trên exploit server
+
+![image](https://user-images.githubusercontent.com/74781135/209417879-e0936e2a-4284-4ba6-ac70-b93c8d28fcaa.png)
+
+Bước 3: Chỉnh sửa request
+
+![image](https://user-images.githubusercontent.com/74781135/209417904-6ee2d57c-563b-48de-82a4-70a7c1a34e9e.png)
+
+Bài lab được hoàn thành 
+
+![image](https://user-images.githubusercontent.com/74781135/209417919-a6ef59f2-6a1d-46f4-a30d-1758112b5993.png)
+
+## XInclude attacks
+**Lab 7: Exploiting XInclude to retrieve files**
+
+Bước 1: Truy cập một sản phẩm bất kỳ và chọn `Check stock`. Gửi request đến Repeater
+
+![image](https://user-images.githubusercontent.com/74781135/209418390-ef4e9e8f-787d-4547-900a-6b2e64df1248.png)
+
+Có thể thấy lần này yêu cầu không phải là XML. Ví dụ kiết quả được nhúng trong XML document như sau
+
+`<?xml version="1.0" encoding="UTF-8"?>
+<stockCheck>
+  <productId>1</productId>
+  <storeId>1</storeId>
+</stockCheck> `
+
+Nếu như có một DTD được định nghĩa cho XML document thì những thay đổi đối với XML document sẽ không được thông qua.
+
+Bước 2: Sử dụng XInclude để xây dựng một XML document mới. Giống như trong các phòng thí nghiệm trước, `productId` được lặp lại nếu nó không hợp lệ.
+
+![image](https://user-images.githubusercontent.com/74781135/209419123-2192a22a-12d8-4653-9a38-27ef03543d19.png)
+
+Bài lab được hoàn thành 
+
+![image](https://user-images.githubusercontent.com/74781135/209419133-32f3da1b-7562-4dd8-872b-df42b1cbfcde.png)
+
+## XXE attacks via file upload
+**Lab 8: Exploiting XXE via image file upload** (Có tham khảo solution)
+
+Bước 1: Truy cập vào một blog và post
+
+Bước 2: Tạo một ảnh SVG với nội dung
+
+![image](https://user-images.githubusercontent.com/74781135/209419408-79f88e4e-c027-408c-b14d-7ef1c27a36e1.png)
+
+Bước 3: Sử dụng ảnh vừa tạo làm avatar và post commnet
+
+![image](https://user-images.githubusercontent.com/74781135/209419617-32f231a7-2746-4103-88a0-2699e67a27a2.png)
+
+Nội dung của file /etc/hostname ở trong ảnh
+
+![image](https://user-images.githubusercontent.com/74781135/209419550-e0c1d290-2acc-4644-be48-4d0d71691ab1.png)
+
+Bài lab được hoàn thành
+
+![image](https://user-images.githubusercontent.com/74781135/209419588-1d853221-21c5-44cb-ba61-1b7d4cebe22d.png)
+
