@@ -110,3 +110,20 @@ Thay đổi URL thành: `return=javascript:alert(document.cookie)`
 Bài lab được hoàn thành
 
 ![image](https://user-images.githubusercontent.com/74781135/210967760-e0c7b20f-1e7f-4baf-8a9d-f95a704182d0.png)
+
+**Lab: DOM XSS in jQuery selector sink using a hashchange event**
+
+Bước 1: Truy cập vào trang web. Đoạn script thực thi
+
+![image](https://user-images.githubusercontent.com/74781135/211229502-6397740d-1620-4649-859a-ea56cd54a2e6.png)
+
+Bước 2: Vào exploit server, sửa phần body thành
+
+![image](https://user-images.githubusercontent.com/74781135/211230287-2fc36ea9-ee2a-4098-94ee-8415910eef97.png)
+
+Bước 3: Chọn `Store` sau đó chọn `Deliver exploit to victim`. Bài lab được hoàn thành
+
+![image](https://user-images.githubusercontent.com/74781135/211230408-c182b25f-5538-4736-9e44-4bd05ae51c8e.png)
+
+#### DOM XSS in AngularJS
+### DOM XSS combined with reflected and stored data
