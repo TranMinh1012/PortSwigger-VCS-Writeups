@@ -127,3 +127,83 @@ Bước 3: Chọn `Store` sau đó chọn `Deliver exploit to victim`. Bài lab 
 
 #### DOM XSS in AngularJS
 ### DOM XSS combined with reflected and stored data
+**Lab: Reflected DOM XSS**
+
+Bước 1: Tìm kiếm với một từ khóa bất kỳ
+
+![image](https://user-images.githubusercontent.com/74781135/211448082-65a5cb95-2ad6-4042-8daa-772e6abfb547.png)
+
+Bước 2: Có thể thấy từ khóa được phản ánh trong phản hồi dưới dạng JSON ở dưới cùng
+
+![image](https://user-images.githubusercontent.com/74781135/211452850-9da17244-d387-4840-bb55-80b3d535d2ae.png)
+
+Bước 3: Thử một số trường hợp để thoát khỏi JSON
+
+![image](https://user-images.githubusercontent.com/74781135/211457903-2b573499-ce7c-49d1-b93a-77b60bcfd5fa.png)
+
+Có thể thấy khi chỉ thoát ra khỏi được dấu `"` còn dấu `\` thì không
+
+![image](https://user-images.githubusercontent.com/74781135/211457843-c8a5701b-2a9d-489a-9b7b-f2c3e0307ace.png)
+
+Khi thêm dấu `\` trước dấu `"` khiến cho phản hồi JSON có 2 dấu `\` và làm cho việc thoát khỏi `searchIterm` hợp lệ
+
+Việc còn lại chỉ cần đóng JSON và bỏ qua những phần phía sau
+
+![image](https://user-images.githubusercontent.com/74781135/211457629-81272079-b784-4944-b792-b027606b468c.png)
+
+Tìm kiếm với `test\"-lert(1)}//`
+
+![image](https://user-images.githubusercontent.com/74781135/211457728-32b43f67-1bd3-4b2c-a265-c9b4858ce7d3.png)
+
+![image](https://user-images.githubusercontent.com/74781135/211457787-8bcb45e4-54ae-41ee-bb8b-0ed6ad298261.png)
+
+**Lab: Stored DOM XSS**
+
+Bước 1: Để lại một bình luận bất kỳ vào gửi đi
+
+![image](https://user-images.githubusercontent.com/74781135/211480636-da3d7217-2e23-4c0b-b546-904f17f8e1ca.png)
+
+![image](https://user-images.githubusercontent.com/74781135/211480712-2bf21347-e40b-428a-9754-591716333429.png)
+
+Có thể thấy không hiện thẻ đóng `</script>`
+
+Nhận xét không được máy chủ gửi trực tiếp cùng với phản hồi, nhưng được tải động và hiển thị qua JavaScript
+
+![image](https://user-images.githubusercontent.com/74781135/211484044-99e6dbea-4018-4fe4-bafa-17d0576583a6.png)
+
+Bước 2: Ở burp suite chọn Target, sẽ tìm thấy một file có tên là `loadCommentsWithVulnerableEscapeHtml.js`
+
+![image](https://user-images.githubusercontent.com/74781135/211483199-9b779a03-b0ea-48a3-b96a-d870dd0d2e6c.png)
+
+Truy cập vào file js, có thể thấy nội dung được tải thông qua `innerHTML`
+
+![image](https://user-images.githubusercontent.com/74781135/211484626-6cab3f6a-6cf9-4b5e-9538-d8b4b73673c4.png)
+
+![image](https://user-images.githubusercontent.com/74781135/211484698-2022e39a-a839-40e9-98c7-fd01d0cf6088.png)
+
+Hàm `escapeHTML()` được sử dụng
+
+![image](https://user-images.githubusercontent.com/74781135/211485402-724029b5-4d29-44b6-973b-ecc9d954c7b6.png)
+
+Hàm này thay thế `<` và `>` 
+
+![image](https://user-images.githubusercontent.com/74781135/211486497-6830659f-f5e3-42dd-bf72-ae4b8faa0c20.png)
+
+Theo như giải thích thì hàm `replace()` chỉ thay thế `<` và `>` đầu tiên nó gặp phải.
+
+Bước 3: Comment với nội dung `<><script>alert(1)</script>`
+
+![image](https://user-images.githubusercontent.com/74781135/211488321-9b0c31d2-3154-4b86-826a-ab0411eead77.png)
+
+script không hoạt động
+
+Bước 4: Comment với nội dung `<><img src="xx" onerror=alert(1)>`
+
+![image](https://user-images.githubusercontent.com/74781135/211488787-6bb87a1f-bdd8-4989-9f84-797665eeedb6.png)
+
+![image](https://user-images.githubusercontent.com/74781135/211488913-e2a20948-6621-4cdd-9abb-166322e64462.png)
+
+### Exploiting cross-site scripting vulnerabilities
+#### Exploiting cross-site scripting to steal cookies
+**Lab: Exploiting cross-site scripting to steal cookies**
+
